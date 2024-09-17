@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Objetos</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        function actualizarMunicipios() {
+            const departamento = document.getElementById('departamento').value;
+            const municipioSelect = document.getElementById('municipio');
+            municipioSelect.innerHTML = '';
+
+            if (departamento) {
+                fetch(`/municipios/${departamento}`)
+                    .then(response => response.json())
+                    .then(municipios => {
+                        municipios.forEach(municipio => {
+                            const option = document.createElement('option');
+                            option.value = municipio.name;
+                            option.text = municipio.name;
+                            municipioSelect.add(option);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Gestión de Objetos</h1>
+
+<!-- Formulario -->
+<form action="/agregar" method="POST">
+    <label for="nombre">Nombre del objeto:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="departamento">Departamento:</label>
+    <select id="departamento" name="departamento" onchange="actualizarMunicipios()" required>
+        <option value="" disabled selected>Selecciona un departamento</option>
+        <% departamentos.forEach(departamento => { %>
+            <option value="<%= departamento.code %>"><%= departamento.name %></option>
+        <% }); %>
+    </select>
+
+    <label for="municipio">Municipio:</label>
+    <select id="municipio" name="municipio" required>
+        <option value="" disabled selected>Selecciona un municipio</option>
+    </select>
+
+    <button type="submit">Agregar</button>
+</form>
+
+<!-- Tabla de objetos agregados -->
+<h2>Objetos agregados</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Departamento</th>
+        <th>Municipio</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% objetos.forEach(objeto => { %>
+        <tr>
+            <td><%= objeto.nombre %></td>
+            <td><%= objeto.departamento %></td>
+            <td><%= objeto.municipio %></td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
+</body>
+</html>
