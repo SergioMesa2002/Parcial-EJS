@@ -3,38 +3,57 @@ body {
     margin: 20px;
     padding: 0;
     background-color: #f4f4f9;
-    background-image: url('/css/fondo2.png'); /* Asegúrate de cambiar la ruta a la ubicación real de tu imagen */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
-    background-position: center; /* Centra la imagen en el fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-image: url('/css/fondo3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 h1, h2 {
     color: #f5e7e7;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-form {
-    margin-bottom: 20px;
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
 }
 
 label {
-    display: block;
+    flex-basis: 100px;
     margin-bottom: 8px;
+    font-weight: bold; /* Negrita */
+    color: white; /* Color blanco */
 }
 
 input, select, button {
-    display: block;
-    margin-bottom: 15px;
     padding: 8px;
     width: 100%;
-    max-width: 400px;
+    max-width: 200px;
     box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    flex-basis: 100%;
+    max-width: 150px;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff; /* Fondo blanco para la tabla */
+    background-color: #fff;
 }
 
 table, th, td {
@@ -44,5 +63,9 @@ table, th, td {
 th, td {
     padding: 10px;
     text-align: left;
-    background-color: #fff; /* Fondo blanco para las celdas de la tabla */
+    background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
 }

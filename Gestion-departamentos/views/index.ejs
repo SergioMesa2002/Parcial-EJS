@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Objetos</title>
+    <title>Gestión de Carros</title>
     <link rel="stylesheet" href="/css/style.css">
     <script>
         function actualizarMunicipios() {
@@ -28,35 +28,41 @@
     </script>
 </head>
 <body>
-<h1>Gestión de Objetos</h1>
+<h1>Gestión de Carros</h1>
 
 <!-- Formulario -->
 <form action="/agregar" method="POST">
-    <label for="nombre">Nombre del objeto:</label>
-    <input type="text" id="nombre" name="nombre" required>
+    <div class="form-group">
+        <label for="carro">Carro:</label>
+        <input type="text" id="carro" name="carro" required>
 
-    <label for="departamento">Departamento:</label>
-    <select id="departamento" name="departamento" onchange="actualizarMunicipios()" required>
-        <option value="" disabled selected>Selecciona un departamento</option>
-        <% departamentos.forEach(departamento => { %>
-            <option value="<%= departamento.code %>"><%= departamento.name %></option>
-        <% }); %>
-    </select>
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" required>
 
-    <label for="municipio">Municipio:</label>
-    <select id="municipio" name="municipio" required>
-        <option value="" disabled selected>Selecciona un municipio</option>
-    </select>
+        <label for="departamento">Departamento:</label>
+        <select id="departamento" name="departamento" onchange="actualizarMunicipios()" required>
+            <option value="" disabled selected>Selecciona un departamento</option>
+            <% departamentos.forEach(departamento => { %>
+                <option value="<%= departamento.code %>"><%= departamento.name %></option>
+            <% }); %>
+        </select>
 
-    <button type="submit">Agregar</button>
+        <label for="municipio">Municipio:</label>
+        <select id="municipio" name="municipio" required>
+            <option value="" disabled selected>Selecciona un municipio</option>
+        </select>
+
+        <button type="submit">Agregar</button>
+    </div>
 </form>
 
-<!-- Tabla de objetos agregados -->
-<h2>Objetos agregados</h2>
+<!-- Tabla de carros agregados -->
+<h2>Carros agregados</h2>
 <table border="1">
     <thead>
     <tr>
-        <th>Nombre</th>
+        <th>Carro</th>
+        <th>Placa</th>
         <th>Departamento</th>
         <th>Municipio</th>
     </tr>
@@ -64,7 +70,8 @@
     <tbody>
     <% objetos.forEach(objeto => { %>
         <tr>
-            <td><%= objeto.nombre %></td>
+            <td><%= objeto.carro %></td>
+            <td><%= objeto.placa %></td>
             <td><%= objeto.departamento %></td>
             <td><%= objeto.municipio %></td>
         </tr>

@@ -51,7 +51,7 @@ function obtenerMunicipios(departamento) {
     return municipiosJSON.filter(municipio => municipio.department === departamento);
 }
 
-// Array para almacenar los objetos agregados
+// Array para almacenar los carros agregados
 let objetos = [];
 
 // Ruta principal
@@ -68,9 +68,9 @@ app.get('/municipios/:departamento', (req, res) => {
 
 // Ruta para manejar el envío del formulario
 app.post('/agregar', (req, res) => {
-    const { nombre, departamento, municipio } = req.body;
-    const nuevoObjeto = { nombre, departamento, municipio };
-    objetos.push(nuevoObjeto);
+    const { carro, placa, departamento, municipio } = req.body;
+    const nuevoCarro = { carro, placa, departamento, municipio };
+    objetos.push(nuevoCarro);
     res.redirect('/');
 });
 
