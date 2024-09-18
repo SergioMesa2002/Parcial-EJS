@@ -3,10 +3,14 @@ body {
     margin: 20px;
     padding: 0;
     background-color: #f4f4f9;
+    background-image: url('/css/fondo2.png'); /* Asegúrate de cambiar la ruta a la ubicación real de tu imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen en el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
 h1, h2 {
-    color: #333;
+    color: #f5e7e7;
 }
 
 form {
@@ -30,13 +34,15 @@ input, select, button {
 table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #fff; /* Fondo blanco para la tabla */
 }
 
 table, th, td {
-    border: 1px solid #ccc;
+    border: 1px solid #030303;
 }
 
 th, td {
     padding: 10px;
     text-align: left;
+    background-color: #fff; /* Fondo blanco para las celdas de la tabla */
 }
