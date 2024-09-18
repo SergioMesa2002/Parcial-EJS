@@ -24,8 +24,8 @@ h1, h2 {
 label {
     flex-basis: 100px;
     margin-bottom: 8px;
-    font-weight: bold; /* Negrita */
-    color: white; /* Color blanco */
+    font-weight: bold; 
+    color: white; 
 }
 
 input, select, button {
